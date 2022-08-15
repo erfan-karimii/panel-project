@@ -1,1 +1,1 @@
-def str | panel admin custome
+img title != img hole bg
