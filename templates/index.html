@@ -1,0 +1,1216 @@
+{% load static %}
+{% load customefilter %}
+<!doctype html>
+<html lang="zxx">
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- color of address bar in mobile browser -->
+  <meta name="theme-color" content="#2B2B35">
+  <!-- favicon  -->
+  <link rel="shortcut icon" href="{{sitesetting.favicon.url}}" alt="{{sitesetting.alt}}" type="image/x-icon">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="{% static 'css/plugins/bootstrap.min.css' %}">
+  <!-- font awesome css -->
+  <link rel="stylesheet" href="{% static 'css/plugins/font-awesome.min.css' %}">
+  <!-- swiper css -->
+  <link rel="stylesheet" href="{% static 'css/plugins/swiper.min.css' %}">
+  <!-- fancybox css -->
+  <link rel="stylesheet" href="{% static 'css/plugins/fancybox.min.css' %}">
+  <!-- main css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <title>{{sitesetting.title_page}}</title>
+</head>
+
+<body>
+
+<!-- app -->
+<div class="art-app art-app-onepage">
+
+  <!-- mobile top bar -->
+  <div class="art-mobile-top-bar"></div>
+
+  <!-- app wrapper -->
+  <div class="art-app-wrapper">
+
+    <!-- app container end -->
+    <div class="art-app-container">
+
+      <!-- info bar -->
+      <div class="art-info-bar">
+
+        <!-- menu bar frame -->
+        <div class="art-info-bar-frame">
+
+          <!-- info bar header -->
+          <div class="art-info-bar-header">
+            <!-- info bar button -->
+            <a class="art-info-bar-btn" href="#.">
+              <!-- icon -->
+              <i class="fas fa-ellipsis-v"></i>
+            </a>
+            <!-- info bar button end -->
+          </div>
+          <!-- info bar header end -->
+
+          <!-- info bar header -->
+          <div class="art-header">
+            <!-- avatar -->
+            <div class="art-avatar">
+              <a data-fancybox="avatar" href="{{Profile.image.url}}" class="art-avatar-curtain">
+                <img src="{{Profile.image.url}}" alt="{{Profile.alt}}">
+                <i class="fas fa-expand"></i>
+              </a>
+              <!-- available -->
+              <div class="art-lamp-light">
+                <!-- add class 'art-not-available' if not available-->
+                <div class="art-available-lamp"></div>
+              </div>
+            </div>
+            <!-- avatar end -->
+            <!-- name -->
+            <h5 class="art-name mb-10">{{Profile.name}}</h5>
+            <!-- post -->
+            <div class="art-sm-text">{{Profile.info}}</div>
+          </div>
+          <!-- info bar header end -->
+
+          <!-- scroll frame -->
+          <div id="scrollbar2" class="art-scroll-frame">
+
+            <!-- info bar about -->
+            <div class="art-table p-15-15">
+              <!-- about text -->
+              <ul>
+                <!-- country -->
+                {% for x in DetailProfile %}
+                <li>
+                  <h6>{{x.name}}:</h6><span>{{x.value}}</span>
+                </li>
+                {% endfor %}
+                <!-- city -->
+               
+              </ul>
+            </div>
+            <!-- info bar about end -->
+
+            <!-- divider -->
+            <div class="art-ls-divider"></div>
+
+            <!-- language skills -->
+            <div class="art-lang-skills p-30-15">
+
+              <!-- skill -->
+            {% for x in Circle %}
+              <div class="art-lang-skills-item">
+                <div id="c{{x.name}}" class="art-cirkle-progress"></div>
+                <!-- title -->
+                <h6>{{x.name}}</h6>
+              </div>
+              {% endfor %}
+              <!-- skill end -->
+
+
+            </div>
+            <!-- language skills end -->
+
+            <!-- divider -->
+            <div class="art-ls-divider"></div>
+
+            <!-- hard skills -->
+            <div class="art-hard-skills p-30-15">
+
+              <!-- skill -->
+              {% for x in Line %}
+              <div class="art-hard-skills-item">
+                <div class="art-skill-heading">
+                  <!-- title -->
+                  <h6>{{x.name}}</h6>
+                </div>
+                <!-- progressbar frame -->
+                <div class="art-line-progress">
+                  <!-- progressbar -->
+                  <div id="l{{x.name}}"></div>
+                </div>
+                <!-- progressbar frame end -->
+              </div>
+              {% endfor %}
+              <!-- skill end -->
+
+
+
+              <!-- skill end -->
+
+            </div>
+            <!-- language skills end -->
+
+            <!-- divider -->
+            <div class="art-ls-divider"></div>
+
+            <!-- knowledge list -->
+            <ul class="art-knowledge-list p-15-0">
+              <!-- list item -->
+              {% for x in Activity %}
+              <li>{{x.activity}}</li>
+              {% endfor %}
+             
+              
+            </ul>
+            <!-- knowledge list end -->
+
+            <!-- divider -->
+            <div class="art-ls-divider"></div>
+
+            <!-- links frame -->
+            <div class="art-links-frame p-15-15">
+
+              <!-- download cv button -->
+              <a href=" {% if Profile.link_resume %}{{Profile.link_resume}}{% else %}{{Profile.resume.url}}{% endif %} " class="art-link" download="">بارگیری رزومه<i class="fas fa-download"></i></a>
+
+            </div>
+            <!-- links frame end -->
+
+          </div>
+          <!-- scroll frame end -->
+
+          <!-- sidebar social -->
+          {% comment %} <div class="art-ls-social">
+            <!-- social link -->
+            <a href="#." target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <!-- social link -->
+            <a href="#." target="_blank"><i class="fab fa-dribbble"></i></a>
+            <!-- social link -->
+            <a href="#." target="_blank"><i class="fab fa-behance"></i></a>
+            <!-- social link -->
+            <a href="#." target="_blank"><i class="fab fa-github"></i></a>
+            <!-- social link -->
+            <a href="#." target="_blank"><i class="fab fa-twitter"></i></a>
+          </div> {% endcomment %}
+          <!-- sidebar social end -->
+
+        </div>
+        <!-- menu bar frame end -->
+
+      </div>
+      <!-- info bar end -->
+
+      <!-- content -->
+      <div class="art-content">
+
+        <!-- curtain -->
+        <div class="art-curtain"></div>
+
+        <!-- top background -->
+        <div class="art-top-bg" style="background-image: url({{head.image.url}})">
+          <!-- overlay -->
+          <div class="art-top-bg-overlay"></div>
+          <!-- overlay end -->
+        </div>
+        <!-- top background end -->
+
+        <!-- swup container -->
+        <div class="transition-fade" id="swup">
+
+          <!-- scroll frame -->
+          <div id="scrollbar" class="art-scroll-frame">
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row p-60-0 p-lg-30-0 p-md-15-0">
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- banner -->
+                  <div class="art-a art-banner" style="background-image: url({{head.image.url}})">
+                    <!-- banner back -->
+                    <div class="art-banner-back"></div>
+                    <!-- banner dec -->
+                    <div class="art-banner-dec"></div>
+                    <!-- banner overlay -->
+                    <div class="art-banner-overlay">
+                      <!-- main title -->
+                      {% comment %} <div class="art-banner-title">
+                        <!-- title -->
+                        <h1 class="mb-15"><br>فضای هنری شگفت انگیز من را کشف کنید!</h1>
+                        <!-- suptitle -->
+                        <div class="art-lg-text art-code mb-25">&lt;<i>code</i>&gt; من یک <span class="txt-rotate" data-period="2000" data-rotate="[ &quot;طراح وب هستم.&quot;, &quot;متخصص اندروید هستم.&quot;, &quot;طراح گرافیک هستم. &quot;, &quot;   برنامه نویس حرفه ای هستم.&quot; ]"><span class="wrap">هستم</span></span>&lt;/<i>code</i>&gt;</div>
+                        <div class="art-buttons-frame">
+                          <!-- button -->
+                          <a href="#." class="art-btn art-btn-md"><span>اکنون کاوش کنید</span></a>
+                          <!-- button -->
+                          <a href="#." class="art-link art-white-link art-w-chevron"> مرا استخدام کنید</a>
+                        </div>
+                      </div> {% endcomment %}
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <!-- main title end -->
+                      <!-- photo -->
+                      <img src="{{head.image.url}}" class="art-banner-photo" alt="{{head.alt}}">
+                    </div>
+                    <!-- banner overlay end -->
+                  </div>
+                  <!-- banner end -->
+
+                </div>
+                <!-- col end -->
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row p-30-0">
+              {% for zir in zirheads %}
+                  <!-- col -->
+                  <div class="col-md-3 col-6">
+
+                    <!-- couner frame -->
+                    <div class="art-counter-frame">
+                      <!-- counter -->
+                      <div class="art-counter-box">
+                        <!-- counter number -->
+                        <span class="art-counter">{{zir.number}}</span>{% if zir.is_more %}<span class="art-counter-plus">+</span>{% endif %}
+                      </div>
+                      <!-- counter end -->
+                      <!-- title -->
+                      <h6>{{zir.text_tozih}}</h6>
+                    </div>
+                    <!-- couner frame end -->
+
+                  </div>
+                  <!-- col end -->
+              {% endfor %}
+            
+
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row">
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- section title -->
+                    <div class="art-section-title">
+                      <!-- title frame -->
+                      <div class="art-title-frame">
+                        <!-- title -->
+                        <h4>خدمات من</h4>
+                      </div>
+                      <!-- title frame end -->
+                    </div>
+                  <!-- section title end -->
+
+                </div>
+                <!-- col end -->
+                {% for khadamat in khadamats %}
+                  <!-- col -->
+                  <div class="col-lg-4 col-md-6">
+
+                    <!-- service -->
+                    <div class="art-a art-service-icon-box">
+                      <!-- service content -->
+                      <div class="art-service-ib-content">
+                        <!-- title -->
+                        <h5 class="mb-15">{{khadamat.title}}</h5>
+                        <!-- text -->
+                        <div class="mb-15">{{khadamat.text_tozih}}</div>
+                        <!-- button -->
+                      </div>
+                      <!-- service content end -->
+                    </div>
+                    <!-- service end -->
+
+                  </div>
+                  <!-- col end -->
+                {% endfor %}
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row p-0-0">
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>برنامه های قیمت</h4>
+                    </div>
+                    <!-- title frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                </div>
+                <!-- col end -->
+                {% for priceplan in priceplans %}
+                <div class="col-lg-4">
+
+                  <!-- price -->
+                  <div class="art-a art-price {% if priceplan.is_populer %}art-popular-price{% endif %} ">
+                    <!-- price body -->
+                    <div class="art-price-body">
+                      <h5 class="mb-30">{{priceplan.title}}</h5>
+                      <!-- price cost -->
+                      <div class="art-price-cost">
+                        <div class="art-number">{% if priceplan.price %} {{priceplan.price}} <span>تومان </span><span>{{priceplan.time}} ساعت </span>{% else %}رایگان{% endif %}</div>
+                      </div>
+                      <!-- price cost end -->
+                      <!-- price list -->
+                      <ul class="art-price-list">
+                        <!-- list item -->
+                        {% for x in priceplan.tozihplan_set.all %}
+                        <li {% if x.is_active %} class="" {% else %} class="art-empty-item"{% endif %}>{{x.name}}</li>
+                        {% endfor %}
+
+                      </ul>
+                      <!-- price list end -->
+                      <!-- button -->
+                      {% comment %} <a href="#." class="art-link art-color-link art-w-chevron">اکنون سفارش دهید</a> {% endcomment %}
+                    </div>
+                    <!-- price body end -->
+                  </div>
+                  <!-- price end -->
+
+                </div>
+                {% endfor %}
+                <!-- col end -->
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row">
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>توصیه ها</h4>
+                    </div>
+                    <!-- title frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                </div>
+                <!-- col end -->
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- slider container -->
+                  <div class="swiper-container art-testimonial-slider" style="overflow: visible">
+                    <!-- slider wrapper -->
+                    <div class="swiper-wrapper">
+                      <!-- slide -->
+                      <div class="swiper-slide">
+
+                        <!-- testimonial -->
+                        <div class="art-a art-testimonial">
+                          <!-- testimonial body -->
+                          <div class="testimonial-body">
+                            <!-- photo -->
+                            <img class="art-testimonial-face" src="{{advice.image.url}}" alt="{{advice.alt}}">
+                            <!-- name -->
+                            <h5>{{advice.name}}</h5>
+                            <!-- text -->
+                            <div class="mb-15">{{advice.text}}</div>
+                          </div>
+                          <!-- testimonial body end -->
+                          <!-- testimonial footer -->
+                          <div class="art-testimonial-footer">
+                            <div class="art-left-side">
+                              <!-- star rate -->
+                              <ul class="art-star-rate">
+                                 {% for x in advice.star|test %} 
+                                <li><i class="fas fa-star"></i></li>
+                                 {% endfor %} 
+                              </ul>
+                              <!-- star rate end -->
+                            </div>
+                            <div class="art-right-side">
+
+                            </div>
+                          </div>
+                          <!-- testimonial footer end -->
+                        </div>
+                        <!-- testimonial end -->
+
+                      </div>
+                      <!-- slide end -->
+                    </div>
+                    <!-- slider wrapper end -->
+                  </div>
+                  <!-- slider container end -->
+
+                </div>
+                <!-- col end -->
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- slider navigation -->
+                  <div class="art-slider-navigation">
+
+                    <!-- left side -->
+                    <div class="art-sn-left">
+
+                      <!-- slider pagination -->
+                      <div class="swiper-pagination"></div>
+
+                    </div>
+                    <!-- left side end -->
+
+                    <!-- right side -->
+                    <div class="art-sn-right">
+
+                      <!-- slider navigation -->
+                      <div class="art-slider-nav-frame">
+                        <!-- prev -->
+                        <div class="art-slider-nav art-testi-swiper-prev"><i class="fas fa-chevron-right"></i></div>
+                        <!-- next -->
+                        <div class="art-slider-nav art-testi-swiper-next"><i class="fas fa-chevron-left"></i></div>
+                      </div>
+                      <!-- slider navigation -->
+
+                    </div>
+                    <!-- right side end -->
+
+                  </div>
+                  <!-- slider navigation end -->
+
+                </div>
+                <!-- col end -->
+
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row p-30-0">
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>آثار</h4>
+                    </div>
+                    <!-- title frame end -->
+                    <!-- right frame -->
+                    <div class="art-right-frame">
+                      <!-- filter -->
+                      <div class="art-filter">
+                        <!-- filter link -->
+                        <a href="#" data-filter="*" class="art-link art-current">همه دسته بندی ها</a>
+                        <!-- filter link -->
+                        {% for cat in categorys %}
+                        <a href="#" data-filter=".{{cat.name}}" class="art-link">{{cat.name}}</a>
+                        {% endfor %}
+                       
+                      </div>
+                      <!-- filter end -->
+                    </div>
+                    <!-- right frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                </div>
+                <!-- col end -->
+
+                <div class="art-grid art-grid-3-col art-gallery">
+
+                  <!-- grid item -->
+                  {% for pro in products %}
+
+                  <div class="art-grid-item {{pro.category.name}}">
+                    <!-- grid item frame -->
+                    <a data-fancybox="gallery" href="{{pro.image.url}}" class="art-a art-portfolio-item-frame art-horizontal">
+                      <!-- img -->
+                      <img src="{{pro.image.url}}" alt="{{pro.alt}}">
+                      <!-- zoom icon -->
+                      <span class="art-item-hover"><i class="fas fa-expand"></i></span>
+                    </a>
+                    <!-- grid item frame end -->
+                    <!-- description -->
+                    <div class="art-item-description">
+                      <!-- title -->
+                      <h5 class="mb-15">{{pro.title}}</h5>
+                      <!-- button -->
+                      {% comment %} <a href="#." class="art-link art-color-link art-w-chevron">ادامه مطلب</a> {% endcomment %}
+                    </div>
+                    <!-- description end -->
+
+                  </div>
+                  {% endfor %}
+                  <!-- grid item end -->
+
+ 
+
+
+                  <!-- grid item end -->
+
+  
+
+                </div>
+
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row">
+
+                <!-- col -->
+                <div class="col-lg-6">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>{{sitesetting.right}}</h4>
+                    </div>
+                    <!-- title frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                  <!-- timeline -->
+                  <div class="art-timeline art-gallery" id="history">
+                   {% for x in historyrights %}
+                    <div class="art-timeline-item">
+                      
+                      <div class="art-timeline-mark-light"></div>
+                      <div class="art-timeline-mark"></div>
+                    
+                      <div class="art-a art-timeline-content">
+                        <div class="art-card-header">
+                          <div class="art-left-side">
+                            <h5>{{x.title}}</h5>
+                            {% comment %} <div class="art-el-suptitle mb-15">نویسنده الگو</div> {% endcomment %}
+                          </div>
+                          <div class="art-right-side">
+                            <span class="art-date">{{x.time}}</span>
+                          </div>
+                        </div>
+
+                        <p>{{x.text}}</p>
+                        {% comment %} <a data-fancybox="diplome" href="files/certificate.jpg" class="art-link art-color-link art-w-chevron">دیپلم</a> {% endcomment %}
+                      </div>
+                    </div>
+                  {% endfor %}
+
+
+                  </div>
+                  <!-- timeline end -->
+
+                </div>
+                <div class="col-lg-6">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>{{sitesetting.left}}</h4>
+                    </div>
+                    <!-- title frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                  <!-- timeline -->
+                  <div class="art-timeline">
+                    {% for x in historylefts %}
+                    <div class="art-timeline-item">
+                      
+                      <div class="art-timeline-mark-light"></div>
+                      <div class="art-timeline-mark"></div>
+                    
+                      <div class="art-a art-timeline-content">
+                        <div class="art-card-header">
+                          <div class="art-left-side">
+                            <h5>{{x.title}}</h5>
+                            {% comment %} <div class="art-el-suptitle mb-15">نویسنده الگو</div> {% endcomment %}
+                          </div>
+                          <div class="art-right-side">
+                            <span class="art-date">{{x.time}}</span>
+                          </div>
+                        </div>
+
+                        <p>{{x.text}}</p>
+                        {% comment %} <a data-fancybox="diplome" href="files/certificate.jpg" class="art-link art-color-link art-w-chevron">دیپلم</a> {% endcomment %}
+                      </div>
+                    </div>
+                  {% endfor %}
+
+                  </div>
+                  <!-- timeline end -->
+
+                </div>
+                <!-- col end -->
+
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            {% comment %} <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row">
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>خبرنامه</h4>
+                    </div>
+                    <!-- title frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                </div>
+                <!-- col end -->
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- slider container -->
+                  <div class="swiper-container art-blog-slider" style="overflow: visible">
+                    <!-- slider wrapper -->
+                    <div class="swiper-wrapper">
+                      <!-- slide -->
+                      <div class="swiper-slide">
+
+                        <!-- blog post card -->
+                        <div class="art-a art-blog-card">
+                          <!-- post cover -->
+                          <a href="#." class="art-port-cover">
+                            <!-- img -->
+                            <img src="{% static 'img/blog/1.jpg' %}" alt="پست وبلاگ">
+                          </a>
+                          <!-- post cover end -->
+                          <!-- post description -->
+                          <div class="art-post-description">
+                            <!-- title -->
+                            <a href="#.">
+                              <h5 class="mb-15">عنوان پست وبلاگ</h5>
+                            </a>
+                            <!-- text -->
+                            <div class="mb-15">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</div>
+                            <!-- link -->
+                            <a href="#." class="art-link art-color-link art-w-chevron">ادامه مطلب</a>
+                          </div>
+                          <!-- post description end -->
+                        </div>
+                        <!-- blog post card end -->
+
+                      </div>
+                      <!-- slide end -->
+                      <!-- slide -->
+                      <div class="swiper-slide">
+
+                        <!-- blog post card -->
+                        <div class="art-a art-blog-card">
+                          <!-- post cover -->
+                          <a href="#." class="art-port-cover">
+                            <!-- img -->
+                            <img src="{% static 'img/blog/2.jpg' %}" alt="پست وبلاگ">
+                          </a>
+                          <!-- post cover end -->
+                          <!-- post description -->
+                          <div class="art-post-description">
+                            <!-- title -->
+                            <a href="#.">
+                              <h5 class="mb-15">عنوان پست وبلاگ</h5>
+                            </a>
+                            <!-- text -->
+                            <div class="mb-15">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</div>
+                            <!-- link -->
+                            <a href="#." class="art-link art-color-link art-w-chevron">ادامه مطلب</a>
+                          </div>
+                          <!-- post description end -->
+                        </div>
+                        <!-- blog post card end -->
+
+                      </div>
+                      <!-- slide end -->
+                      <!-- slide -->
+                      <div class="swiper-slide">
+
+                        <!-- blog post card -->
+                        <div class="art-a art-blog-card">
+                          <!-- post cover -->
+                          <a href="#." class="art-port-cover">
+                            <!-- img -->
+                            <img src="img/blog/3.jpg" alt="پست وبلاگ">
+                          </a>
+                          <!-- post cover end -->
+                          <!-- post description -->
+                          <div class="art-post-description">
+                            <!-- title -->
+                            <a href="#.">
+                              <h5 class="mb-15">عنوان پست وبلاگ</h5>
+                            </a>
+                            <!-- text -->
+                            <div class="mb-15">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</div>
+                            <!-- link -->
+                            <a href="#." class="art-link art-color-link art-w-chevron">ادامه مطلب</a>
+                          </div>
+                          <!-- post description end -->
+                        </div>
+                        <!-- blog post card end -->
+
+                      </div>
+                      <!-- slide end -->
+                      <!-- slide -->
+                      <div class="swiper-slide">
+
+                        <!-- blog post card -->
+                        <div class="art-a art-blog-card">
+                          <!-- post cover -->
+                          <a href="#." class="art-port-cover">
+                            <!-- img -->
+                            <img src="img/blog/4.jpg" alt="پست وبلاگ">
+                          </a>
+                          <!-- post cover end -->
+                          <!-- post description -->
+                          <div class="art-post-description">
+                            <!-- title -->
+                            <a href="#.">
+                              <h5 class="mb-15">عنوان پست وبلاگ</h5>
+                            </a>
+                            <!-- text -->
+                            <div class="mb-15">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</div>
+                            <!-- link -->
+                            <a href="#." class="art-link art-color-link art-w-chevron">ادامه مطلب</a>
+                          </div>
+                          <!-- post description end -->
+                        </div>
+                        <!-- blog post card end -->
+
+                      </div>
+                      <!-- slide end -->
+                      <!-- slide -->
+                      <div class="swiper-slide">
+
+                        <!-- blog post card -->
+                        <div class="art-a art-blog-card">
+                          <!-- post cover -->
+                          <a href="#." class="art-port-cover">
+                            <!-- img -->
+                            <img src="img/blog/5.jpg" alt="پست وبلاگ">
+                          </a>
+                          <!-- post cover end -->
+                          <!-- post description -->
+                          <div class="art-post-description">
+                            <!-- title -->
+                            <a href="#.">
+                              <h5 class="mb-15">عنوان پست وبلاگ</h5>
+                            </a>
+                            <!-- text -->
+                            <div class="mb-15">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</div>
+                            <!-- link -->
+                            <a href="#." class="art-link art-color-link art-w-chevron">ادامه مطلب</a>
+                          </div>
+                          <!-- post description end -->
+                        </div>
+                        <!-- blog post card end -->
+
+                      </div>
+                      <!-- slide end -->
+                    </div>
+                    <!-- slider wrapper end -->
+                  </div>
+                  <!-- slider container end -->
+
+                </div>
+                <!-- col end -->
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- slider navigation -->
+                  <div class="art-slider-navigation">
+
+                    <!-- left side -->
+                    <div class="art-sn-left">
+
+                      <!-- slider pagination -->
+                      <div class="swiper-pagination"></div>
+
+                    </div>
+                    <!-- left side end -->
+
+                    <!-- right side -->
+                    <div class="art-sn-right">
+
+                      <!-- slider navigation -->
+                      <div class="art-slider-nav-frame">
+                        <!-- prev -->
+                        <div class="art-slider-nav art-blog-swiper-prev"><i class="fas fa-chevron-right"></i></div>
+                        <!-- next -->
+                        <div class="art-slider-nav art-blog-swiper-next"><i class="fas fa-chevron-left"></i></div>
+                      </div>
+                      <!-- slider navigation -->
+
+                    </div>
+                    <!-- right side end -->
+
+                  </div>
+                  <!-- slider navigation end -->
+
+                </div>
+                <!-- col end -->
+
+              </div>
+              <!-- row end -->
+
+            </div> {% endcomment %}
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- row -->
+              <div class="row p-30-0">
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>اطلاعات تماس</h4>
+                    </div>
+                    <!-- title frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                </div>
+                <!-- col end -->
+                <!-- col -->
+                <div class="col-lg-4">
+                  <!-- contact card -->
+
+                  <div class="art-a art-card">
+                    <div class="art-table p-15-15">
+                      <ul>
+                        <li>
+                          <h6>کشور:</h6><span>{{call.country}}</span>
+                        </li>
+                        <li>
+                          <h6>شهر:</h6><span>{{call.city}}</span>
+                        </li>
+
+                        <li>
+                          <h6>خیابان:</h6><span>{{call.street}}</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- contact card end -->
+                </div>
+                <!-- col end -->
+                <!-- col -->
+                <div class="col-lg-4">
+                  <!-- contact card -->
+                  <div class="art-a art-card">
+                    <div class="art-table p-15-15">
+                      <ul>
+                        <li>
+                          <h6>پست الکترونیک:</h6><span>{{call.post}}</span>
+                        </li>
+                        <li>
+                          <h6>تلگرام:</h6><span>{{call.telegram}}</span>
+                        </li>
+                        <li>
+                          <h6>اسکایپ:</h6><span>{{call.skype}}</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- contact card end -->
+                </div>
+                <!-- col end -->
+                <!-- col -->
+                <div class="col-lg-4">
+                  <!-- contact card -->
+                  <div class="art-a art-card">
+                    <div class="art-table p-15-15">
+                      <ul>
+                        <li>
+                          <h6>خدمات پشتیبانی:</h6><span>0912345678</span>
+                        </li>
+                        <li>
+                          <h6>دفتر:</h6><span>326 11 224334</span>
+                        </li>
+                        <li>
+                          <h6>شخصی:</h6><span>114 11 224334</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- contact card end -->
+
+                </div>
+                <!-- col end -->
+
+                <!-- col -->
+                <div class="col-lg-12">
+
+                  <!-- section title -->
+                  <div class="art-section-title">
+                    <!-- title frame -->
+                    <div class="art-title-frame">
+                      <!-- title -->
+                      <h4>در تماس باشید</h4>
+                    </div>
+                    <!-- title frame end -->
+                  </div>
+                  <!-- section title end -->
+
+                  <!-- contact form frame -->
+                  <div class="art-a art-card">
+
+                    <!-- contact form -->
+                    <form method='POST' class="art-contact-form" action='form/'>
+                      {% csrf_token %}
+                      <!-- form field -->
+                      <div class="art-form-field">
+                        <!-- name input -->
+                        <input id="name" name="name" class="art-input" type="text" placeholder="نام" required="">
+                        <!-- label -->
+                        <label for="name"><i class="fas fa-user"></i></label>
+                      </div>
+                      <!-- form field end -->
+                      <!-- form field -->
+                      <div class="art-form-field">
+                        <!-- email input -->
+                        <input id="email" name="email" class="art-input" type="email" placeholder="پست الکترونیک" required="">
+                        <!-- label -->
+                        <label for="email"><i class="fas fa-at"></i></label>
+                      </div>
+                      <!-- form field end -->
+                      <!-- form field -->
+                      <div class="art-form-field">
+                        <!-- message textarea -->
+                        <textarea id="message" name="message" class="art-input" placeholder="پیام" required=""></textarea>
+                        <!-- label -->
+                        <label for="message"><i class="far fa-envelope"></i></label>
+                      </div>
+                      <div class="art-form-field">
+                      {{form.captcha}}
+                      </div>
+                      <!-- form field end -->
+                      <!-- button -->
+                      <div class="art-submit-frame">
+                        <button class="art-btn art-btn-md art-submit" type="submit"><span>پیام فرستادن</span></button>
+                        <!-- success -->
+                        {% comment %} <div class="art-success">موفقیت <i class="fas fa-check"></i></div> {% endcomment %}
+                      </div>
+                    </form>
+                    <!-- contact form end -->
+
+                  </div>
+                  <!-- contact form frame end -->
+
+                </div>
+                <!-- col end -->
+
+              </div>
+              <!-- row end -->
+
+            </div>
+            <!-- container end -->
+
+            <!-- container -->
+            <div class="container-fluid">
+
+              <!-- footer -->
+              <footer>
+                <!-- copyright -->
+                <div> طراحی و توسعه در تیم<a href="https://sammotlagh.com/" target="blank"style="color:#FFC107">  پزشک کسب و کار  </a></div>
+                <div>نویسنده الگو:&nbsp;  <a target="_blank">{{sitesetting.author}}</a></div>
+              </footer>
+              <!-- footer end -->
+
+            </div>
+            <!-- container end -->
+
+          </div>
+          <!-- scroll frame end -->
+
+        </div>
+        <!-- swup container end -->
+
+      </div>
+      <!-- content end -->
+
+    </div>
+    <!-- app container end -->
+
+  </div>
+  <!-- app wrapper end -->
+<!-- preloader -->
+  <div class="art-preloader">
+    <!-- preloader content -->
+    <div class="art-preloader-content">
+      <!-- title -->
+      <h4>آرتور کارتر</h4>
+      <!-- progressbar -->
+      <div id="preloader" class="art-preloader-load"></div>
+    </div>
+    <!-- preloader content end -->
+  </div>
+  <!-- preloader end --> 
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+{% for message in messages %}
+swal('{{message}}');
+{% endfor %}
+</script>
+
+
+
+</div>
+<!-- app end -->
+<div id="swupMenu"></div>
+
+<!-- jquery js -->
+<script src="{% static 'js/plugins/jquery.min.js' %}"></script>
+<!-- anime js -->
+<script src="{% static 'js/plugins/anime.min.js' %}"></script>
+<!-- swiper js -->
+<script src="{% static 'js/plugins/swiper.min.js' %}"></script>
+<!-- progressbar js -->
+<script src="{% static 'js/plugins/progressbar.min.js' %}"></script>
+<!-- smooth scrollbar js -->
+<script src="{% static 'js/plugins/smooth-scrollbar.min.js' %}"></script>
+<!-- overscroll js -->
+<script src="{% static 'js/plugins/overscroll.min.js' %}"></script>
+<!-- typing js -->
+<script src="{% static 'js/plugins/typing.min.js' %}"></script>
+<!-- isotope js -->
+<script src="{% static 'js/plugins/isotope.min.js' %}"></script>
+<!-- fancybox js -->
+<script src="{% static 'js/plugins/fancybox.min.js' %}"></script>
+<!-- swup js -->
+<script src="{% static 'js/plugins/swup.min.js' %}"></script>
+
+<!-- main js -->
+<script src="{% static 'js/main.js' %}"></script>
+
+
+<script>
+  {% for x in Line %}
+  //line
+  var bar = new ProgressBar.Line(l{{x.name}}, {
+    strokeWidth: 1.72,
+    easing: 'easeInOut',
+    duration: 1400,
+    delay: 2900,
+    trailWidth: 1,
+    svgStyle: {
+      width: '100%',
+      height: '100%'
+    },
+    step: (state, bar) => {
+      bar.setText(Math.round(bar.value() * 100) + ' %');
+    }
+  });
+
+  bar.animate({{x.number|number}});
+  {% endfor %}
+</script>
+<script>
+  {% for x in Circle %}
+  //circle
+  var bar = new ProgressBar.Circle(c{{x.name}}, {
+    strokeWidth: 7,
+    easing: 'easeInOut',
+    duration: 1400,
+    delay: 2600,
+    trailWidth: 7,
+    step: function(state, circle) {
+      var value = Math.round(circle.value() * 100);
+      if (value === 0) {
+        circle.setText('');
+      } else {
+        circle.setText(value);
+      }
+    }
+  });
+
+  bar.animate({{x.number|number}});
+
+  {% endfor %}
+</script>
+</body>
+
+</html>
